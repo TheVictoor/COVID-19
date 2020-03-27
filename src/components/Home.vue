@@ -1,8 +1,12 @@
 <template>
 	<div class="container-dash d-flex justify-content-center align-items-center">
 		<div class="card card-style">
-			<div class="card-header">
-				<countryComponent v-if="country.name" :label="country.name" :image="country.flag"></countryComponent>
+			<div class="card-header text-center">
+				<img class="image-country" v-if="country.flag" :src="country.flag" :alt="`bandeira do pais ${country.name}`">
+				<h3 class="label-country">
+					{{ country.name || "" }}
+				</h3>
+				<!-- <countryComponent v-if="country.name" :label="country.name" :image="country.flag"></countryComponent> -->
 			</div>
 			<div class="card-body">
 				<informativoComponent v-if="stats.confirmed" label='Confirmed' :number='stats.confirmed'/>
@@ -17,14 +21,14 @@
 </template>
 
 <script>
-import countryComponent from "./Country";
+// import countryComponent from "./Country";
 import informativoComponent from "./Information";
 import services from "./../services";
 
 export default {
   name: "Home",
   components: {
-		countryComponent,
+		// countryComponent,
 		informativoComponent
   },
   data() {
@@ -78,6 +82,22 @@ export default {
 
 	.card-footer {
 		font-size: 10px;
+	}
+
+	.image-country {
+		width: 70px;
+		border-radius: 10px;
+		position: relative;
+		top: -35px;
+	}
+
+	.label-country {
+		position: relative;
+		top: -25px;
+	}
+
+	.card-header {
+		height: 80px;
 	}
 
 </style>

@@ -1,17 +1,19 @@
 <template>
-  <div id="mainCard" class="card">
-    <div class="card-header">
-      <countryComponent v-if="country.name" :label="country.name" :image="country.flag"></countryComponent>
-    </div>
-    <div class="card-body">
-      <informativoComponent v-if="stats.confirmed" label='Confirmed' :number='stats.confirmed'/>
-      <informativoComponent v-if="stats.deaths" label='Deaths' :number='stats.deaths'/>
-      <informativoComponent v-if="stats.recovered" label='Recovered' :number='stats.recovered'/>
-    </div>
-    <div class="card-footer bg-transparent text-right">
-			{{ lastUpdate || "" }}
+	<div class="container-dash d-flex justify-content-center align-items-center">
+		<div class="card card-style">
+			<div class="card-header">
+				<countryComponent v-if="country.name" :label="country.name" :image="country.flag"></countryComponent>
+			</div>
+			<div class="card-body">
+				<informativoComponent v-if="stats.confirmed" label='Confirmed' :number='stats.confirmed'/>
+				<informativoComponent v-if="stats.deaths" label='Deaths' :number='stats.deaths'/>
+				<informativoComponent v-if="stats.recovered" label='Recovered' :number='stats.recovered'/>
+			</div>
+			<div class="card-footer bg-transparent text-right">
+				{{ lastUpdate || "" }}
+			</div>
 		</div>
-  </div>
+	</div>
 </template>
 
 <script>
@@ -43,16 +45,11 @@ export default {
       const country = countries[index];
       const flag = await services.country.get(country);
       const stats = await services.covid.get(country);
+			const update = new Date(stats.lastUpdate);
 
       this.country.name = country;
       this.country.flag = flag;
 			this.stats = stats;
-			
-			console.log(this.country);
-			console.log(this.stats);
-
-			const update = new Date(stats.lastUpdate);
-
 			this.lastUpdate = `Day ${update.getDate()} At ${update.getHours()}:${update.getMinutes()}`;
 
       index++;
@@ -60,7 +57,7 @@ export default {
 
 			setTimeout(function(){
 				changeData();
-			}, 30000);
+			}, 15000);
 		};
 	
 		await changeData();
@@ -69,15 +66,18 @@ export default {
 </script>
 
 <style scoped>
-.card {
-  width: 300px;
-  position: relative;
-  align-content: center;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-.card-footer {
-  font-size: 10px;
-}
+
+	.container-dash {
+		width: 100vw;
+		height: 100vh;
+	}
+
+	.card-style {
+		width: 300px;
+	}
+
+	.card-footer {
+		font-size: 10px;
+	}
+
 </style>

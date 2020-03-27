@@ -6,7 +6,6 @@
 				<h3 class="label-country">
 					{{ country.name || "" }}
 				</h3>
-				<!-- <countryComponent v-if="country.name" :label="country.name" :image="country.flag"></countryComponent> -->
 			</div>
 			<div class="card-body">
 				<informativoComponent v-if="stats.confirmed" label='Confirmed' :number='stats.confirmed'/>
@@ -21,14 +20,12 @@
 </template>
 
 <script>
-// import countryComponent from "./Country";
 import informativoComponent from "./Information";
 import services from "./../services";
 
 export default {
   name: "Home",
   components: {
-		// countryComponent,
 		informativoComponent
   },
   data() {

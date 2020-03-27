@@ -1,18 +1,24 @@
 <template>
-  <div class="d-flex justify-content-between align-items-center">
-    <span class="labelInformation">{{ label }}</span>
-    <span class="numberInformation">{{ number }}</span>
-  </div>
+	<div class="d-flex justify-content-between align-items-center">
+		<span class="d-flex align-items-center">
+			<span class="icon" v-html="Icons.icons[label]"></span>
+			<span class="labelInformation">{{ label }}</span>
+		</span>
+		<span class="numberInformation">{{ number }}</span>
+	</div>
 </template>
 
 <script>
-export default {
-  name: "information",
-  props: ["label", "number"],
-  data() {
-    return {}
-  },
-}
+	import Icons from '../assets/icons';
+	export default {
+		name: "information",
+		props: ["label", "number"],
+		data() {
+			return {
+				Icons
+			}
+		}
+	}
 </script>
 
 <style scoped>
@@ -30,5 +36,8 @@ export default {
 
 	.card {
 		width: 350px !important;
+	}
+	.icon{
+		padding-right: 5px;
 	}
 </style>

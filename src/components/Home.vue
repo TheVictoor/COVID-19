@@ -8,7 +8,9 @@
       <informativoComponent v-if="stats.deaths" label='Deaths' :number='stats.deaths'/>
       <informativoComponent v-if="stats.recovered" label='Recovered' :number='stats.recovered'/>
     </div>
-    <div class="card-footer bg-transparent">{{ lastUpdate || "" }}</div>
+    <div class="card-footer bg-transparent text-right">
+			{{ lastUpdate || "" }}
+		</div>
   </div>
 </template>
 
@@ -55,6 +57,10 @@ export default {
 
       index++;
 			if (index === countries.length) index = 0;
+
+			setTimeout(function(){
+				changeData();
+			}, 30000);
 		};
 	
 		await changeData();

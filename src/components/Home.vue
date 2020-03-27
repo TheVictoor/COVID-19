@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
 	<div class="container-dash d-flex justify-content-center align-items-center">
 		<div class="card card-style">
 			<div class="card-header text-center">
@@ -23,35 +22,6 @@
 <script>
 import informativoComponent from "./Information";
 import services from "./../services";
-=======
-  <div class="container-dash d-flex justify-content-center align-items-center">
-    <div>
-      <canvas></canvas>
-      <div class="card card-style">
-        <div class="card-header text-center">
-          <img
-            class="image-country"
-            v-if="country.flag"
-            :src="country.flag"
-            :alt="`bandeira do pais ${country.name}`"
-          />
-          <h3 class="label-country">{{ country.name || "" }}</h3>
-        </div>
-        <div class="card-body">
-          <informativoComponent v-if="stats.confirmed" label="Confirmed" :number="stats.confirmed" />
-          <informativoComponent v-if="stats.deaths" label="Deaths" :number="stats.deaths" />
-          <informativoComponent v-if="stats.recovered" label="Recovered" :number="stats.recovered" />
-        </div>
-        <div class="card-footer bg-transparent text-right">{{ lastUpdate || "" }}</div>
-      </div>
-    </div>
-  </div>
-</template>
-
-<script>
-import informativoComponent from "./Information"
-import services from "./../services"
->>>>>>> 740b314947d391654cd14b75784ada2f2bada633
 
 export default {
   name: "Home",

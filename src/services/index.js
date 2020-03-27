@@ -1,9 +1,7 @@
-import countryFlag from './country-flag';
+import country from './country-flag';
 import covid from './covid';
 
-const toExport = {
-	country: countryFlag,
+export default {
+	country,
 	covid,
 };
-
-export default toExport;

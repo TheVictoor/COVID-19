@@ -11,7 +11,7 @@ const countryService = {
 	get: async (country) => {
 		const retorno = await service.get(path.replace('${country}', country));
 		
-		if(retorno.status !== 200)
+		if(retorno.status !== 200 && retorno.status !== 304)
 			return null;
 
 		const response = retorno.data;

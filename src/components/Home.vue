@@ -6,7 +6,6 @@
 				<h3 class="label-country">
 					{{ country.name || "" }}
 				</h3>
-				<!-- <countryComponent v-if="country.name" :label="country.name" :image="country.flag"></countryComponent> -->
 			</div>
 			<div class="card-body">
 				<informativoComponent v-if="stats.confirmed" label='Confirmed' :number='stats.confirmed'/>
@@ -21,14 +20,13 @@
 </template>
 
 <script>
-// import countryComponent from "./Country";
+
 import informativoComponent from "./Information";
 import services from "./../services";
 
 export default {
   name: "Home",
   components: {
-		// countryComponent,
 		informativoComponent
   },
   data() {
@@ -41,7 +39,14 @@ export default {
 			lastUpdate: null
     }
   },
-  methods: {},
+  methods: {
+		extractDate( serializedDate ){
+			const date = new Date(serializedDate);
+			const fill = (s) => s.toString().length === 1 ? '0' + s.toString() : s;
+			const extracted = `${fill(date.getDate())}/${fill(date.getMonth() + 1)} at ${fill(date.getHours())}:${fill(date.getMinutes())}`;
+			return extracted; 
+		}
+	},
   async created() {
 		let index = 0;
 		const countries = process.env.VUE_APP_COUNTRIES.split(",");
@@ -49,12 +54,11 @@ export default {
       const country = countries[index];
       const flag = await services.country.get(country);
       const stats = await services.covid.get(country);
-			const update = new Date(stats.lastUpdate);
 
+			this.lastUpdate = this.extractDate(stats.lastUpdate);
       this.country.name = country;
       this.country.flag = flag;
 			this.stats = stats;
-			this.lastUpdate = `Day ${update.getDate()} At ${update.getHours()}:${update.getMinutes()}`;
 
       index++;
 			if (index === countries.length) index = 0;

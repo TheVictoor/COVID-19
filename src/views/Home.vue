@@ -1,27 +1,35 @@
 <template>
   <div class="container-fluid d-flex flex-column justify-content-center">
-    <HeaderComponent 
-      @update="updateNext()"
-      v-if="country.flag" 
-      :countryFlag="country.flag" 
-      :countryLabel="country.name"
-    ></HeaderComponent>
     <div class="row">
-      <InfoComponent
-      :v-if="this.stats"
-      :number="stats.confirmed"
-      label="Confirmed"
-      ></InfoComponent>
-      <InfoComponent
-        :v-if="this.stats"
-        :number="stats.deaths"
-        label="Deaths"
-      ></InfoComponent>
-      <InfoComponent
-        :v-if="this.stats"
-        :number="stats.recovered"
-        label="Recovered"
-      ></InfoComponent>
+      <div class="col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+        <HeaderComponent 
+          @update="updateNext()"
+          v-if="country.flag" 
+          :countryFlag="country.flag" 
+          :countryLabel="country.name"
+        ></HeaderComponent>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+        <div class="row">
+          <InfoComponent
+          :v-if="this.stats"
+          :number="stats.confirmed"
+          label="Confirmed"
+          ></InfoComponent>
+          <InfoComponent
+            :v-if="this.stats"
+            :number="stats.deaths"
+            label="Deaths"
+          ></InfoComponent>
+          <InfoComponent
+            :v-if="this.stats"
+            :number="stats.recovered"
+            label="Recovered"
+          ></InfoComponent>
+        </div>
+      </div>
     </div>
   </div>
 </template>

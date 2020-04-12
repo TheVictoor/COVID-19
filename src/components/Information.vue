@@ -1,5 +1,5 @@
 <template>
-	<div class="col-12 col-sm-8 offset-sm-2 col-md-4 offset-md-0 p-3 d-flex flex-column align-items-center justify-content-center">
+	<div class="col-12 p-3 d-flex flex-column align-items-center justify-content-center">
 		<div class="container-data d-flex flex-column align-items-center">
 			<div class="h2">
 				{{ label }}

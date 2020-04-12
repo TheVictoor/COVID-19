@@ -1,6 +1,6 @@
 <template>
-	<div class="row">
-		<div class="col-12 col-md-3 offset-md-3 text-center p-2">
+	<div class="w-100 d-sm-flex justify-content-around">
+		<div class="text-center p-2">
 			<img
 				@dblclick="update()"
 				class="country-flag"
@@ -9,7 +9,7 @@
 				:alt="`${countryLabel}'s flag`"
 			/>
 		</div>
-		<div class="col-12 col-md-3 d-flex justify-content-center align-items-center p-2 country-label">
+		<div class="d-flex justify-content-center align-items-center p-2 country-label">
 			<h1> {{ countryLabel }} </h1>
 		</div>
 	</div>

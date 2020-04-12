@@ -1,11 +1,15 @@
 <template>
-	<div class="d-flex justify-content-between align-items-center">
-		<span class="d-flex align-items-center">
-			<span class="icon" v-html="Icons.icons[label]"></span>
-			<span class="labelInformation">{{ label }}</span>
-		</span>
-		<span class="numberInformation">{{ number }}</span>
-	</div>
+	<div class="col-12 col-sm-8 offset-sm-2 col-md-4 offset-md-0 p-3 d-flex flex-column align-items-center justify-content-center">
+		<div class="container-data d-flex flex-column align-items-center">
+			<div class="h2">
+				{{ label }}
+			</div>
+			<div class="data">
+				{{ number }}
+			</div>
+		</div>
+		<div class="container-effect" :class="[label.toLowerCase()]"></div>
+	</div>		
 </template>
 
 <script>
@@ -22,22 +26,32 @@
 </script>
 
 <style scoped>
-	.labelInformation {
-		font-size: 18px;
-		font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-		padding-right: 40px;
+	
+	.container-data {
+		width: 98%;
+		z-index: 2;
+		background-color: #fff;
 	}
 
-	.numberInformation {
-		font-size: 18px;
-		font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-		color: red !important;
+	.container-effect {
+		position: relative;
+		z-index: 1 !important;	
+		top: -10px;
+		height: 14px;
+		width: 100%;
 	}
 
-	.card {
-		width: 350px !important;
+	.confirmed {
+		background-color: #66f;
 	}
-	.icon{
-		padding-right: 5px;
+
+	.deaths {
+		background-color: #f66;
 	}
+
+	.recovered {
+		background-color: #6f6;
+	}
+
+
 </style>

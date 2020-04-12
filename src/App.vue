@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Home from './components/Home.vue';
+import Home from './views/Home';
 
 export default {
   name: 'App',
@@ -20,8 +20,8 @@ export default {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: #2c3e50;
-    background-color: #111;
+    color: #444;
+    background-color: #FFF;
     width: 100vw;
     height: 100vh;
   }

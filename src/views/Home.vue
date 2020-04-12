@@ -79,7 +79,7 @@ export default {
 
 				this.timeoutId = setTimeout(function() {
 					changeData();
-				}, 10000)
+				}, 20000)
 			}
 
 			await changeData()

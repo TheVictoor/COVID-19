@@ -18,9 +18,13 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
 
     <style>
-      .button-install {
+      .container-button {
         width: 100vw;
-        max-width: 400px;
+      }
+
+      .button-install {
+        margin: auto;
+        width: 400px;
         height: 50px;
         border: none;
         background-color: #eee;
@@ -38,7 +42,10 @@
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     
-    <button class="button-install" id="butInstall" hidden></button>
+    <div class="container-button">
+      <button class="button-install" id="butInstall" hidden> Install shortcut icon </button>
+    </div>
+    
     <div id="app"></div>
 
     <script>

@@ -13,22 +13,23 @@
 
     <link rel="icon" href="<%= BASE_URL %>icon.png">
     <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="apple-touch-icon" href="favicon.ico">
     
     <title><%= htmlWebpackPlugin.options.title %></title>
 
     <style>
       .container-button {
+        display: flex;
+        justify-content: center;
         width: 100vw;
       }
 
       .button-install {
-        margin: auto;
         width: 400px;
         height: 50px;
         border: none;
         background-color: #eee;
-        color: #000;
+        color: #222;
       }
 
       .button-install:hover {

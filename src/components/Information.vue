@@ -1,10 +1,10 @@
 <template>
 	<div class="col-12 p-3 d-flex flex-column align-items-center justify-content-center">
 		<div class="container-data d-flex flex-column align-items-center">
-			<div class="h2">
+			<div class="h2" :key="label">
 				{{ label }}
 			</div>
-			<div class="data">
+			<div class="data" :key="number">
 				{{ number }}
 			</div>
 		</div>

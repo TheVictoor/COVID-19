@@ -6,11 +6,12 @@
 				class="country-flag"
 				v-if="countryFlag"
 				:src="countryFlag"
+				:key="countryFlag"
 				:alt="`${countryLabel}'s flag`"
 			/>
 		</div>
 		<div class="d-flex justify-content-center align-items-center p-2 country-label">
-			<h1> {{ countryLabel }} </h1>
+			<h1 :key="countryLabel"> {{ countryLabel }} </h1>
 		</div>
 	</div>
 </template>

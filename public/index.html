@@ -16,12 +16,29 @@
     <link rel="apple-touch-icon" href="favicon.ico">
     
     <title><%= htmlWebpackPlugin.options.title %></title>
+
+    <style>
+      .button-install {
+        width: 100vw;
+        max-width: 400px;
+        height: 50px;
+        border: none;
+        background-color: #eee;
+        color: #000;
+      }
+
+      .button-install:hover {
+        background-color: #bbb;
+      }
+    </style>
+
   </head>
   <body>
     <noscript>
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     
+    <button class="button-install" id="butInstall" hidden></button>
     <div id="app"></div>
 
     <script>

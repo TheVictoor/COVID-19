@@ -106,4 +106,8 @@ export default {
     height: 100vh;
   }
 
+  .test {
+    background-color: #0e6815;
+  }
+
 </style>

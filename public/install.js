@@ -17,7 +17,6 @@ installButton.addEventListener('click', (evt) => {
       }
       deferredInstallPrompt = null;
     });
-
 });
 
 window.addEventListener('beforeinstallprompt', (evt) => {
